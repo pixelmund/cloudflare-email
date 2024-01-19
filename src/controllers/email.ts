@@ -34,6 +34,9 @@ class Email {
 			})
 		);
 
+		console.log(JSON.stringify(Object.fromEntries(resp.headers), null, 2));
+		console.log(await resp.text());
+
 		// check if email was sent successfully
 		if (resp.status > 299 || resp.status < 200) {
 			throw new Error(`Error sending email: ${resp.status} ${resp.statusText}`);

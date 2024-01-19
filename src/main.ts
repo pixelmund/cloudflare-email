@@ -13,7 +13,7 @@ router.post<EmailRequest>('/api/email', AuthMiddleware, EmailSchemaMiddleware, a
 	try {
 		await Email.send(email);
 	} catch (e) {
-		console.error(`Error sending email: ${e}`);
+		console.error("Error sending email", e);
 		return new Response('Internal Server Error', { status: 500 });
 	}
 
